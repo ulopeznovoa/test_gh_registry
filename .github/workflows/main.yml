@@ -1,0 +1,11 @@
+name: initial-gh-actions-test
+run-name: ${{ github.actor }} using GitHub Actions
+on: [push]
+jobs:
+  check-script-length:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: echo "Hello from the runner"
+      - run: export LEN=`wc -l hello.sh | cut -d " " -f 1`
+      - run: echo "Length of the script: "$LEN
